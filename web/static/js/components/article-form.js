@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Input, Textarea, Panel, PanelHeader } from 'rebass';
 
 export default class ArticleForm extends Component {
   constructor(props) {
@@ -25,22 +26,28 @@ export default class ArticleForm extends Component {
   render() {
     return (
       <div className="article-form">
-        <input
-          type="text"
-          className="article-form__title"
-          onChange={this.onTitleChange.bind(this)}
-          placeholder="title"
-        />
-        <textarea
-          className="article-form__body"
-          onChange={this.onBodyChange.bind(this)}
-        />
-        <input
-          className="article-form__submit"
-          type="submit"
-          onClick={this.onSubmit.bind(this)}
-          value="Post"
-        />
+        <Panel theme="default">
+          <PanelHeader theme="default">
+            Form
+          </PanelHeader>
+          <Input
+            type="text"
+            className="article-form__title"
+            onChange={this.onTitleChange.bind(this)}
+            placeholder="title"
+          />
+          <Textarea
+            className="article-form__body"
+            onChange={this.onBodyChange.bind(this)}
+          />
+          <Input
+            className="article-form__submit"
+            type="submit"
+            onClick={this.onSubmit.bind(this)}
+            value="Post"
+            style={{ width: 100 }}
+          />
+        </Panel>
       </div>
     );
   }

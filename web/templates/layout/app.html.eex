@@ -12,7 +12,9 @@
   </head>
 
   <body>
-    <main id="root"></main>
+    <div class="wrapper" style="width: 970px; margin: 30px auto 40px;">
+      <main id="root"></main>
+    </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

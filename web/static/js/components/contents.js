@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import ArticleForm from './article-form';
+import { Section, SectionHeader, Text } from 'rebass';
 
 export default class Contents extends Component {
   renderArticles() {
     return this.props.articles.map(article => {
       return (
-        <div>
-          <h2 className="contents__title">{article.title}</h2>
-          <p className="contents__body">{article.body}</p>
-        </div>
+        <Section>
+          <SectionHeader className="contents__title" heading={article.title} />
+          <Text className="contents__body">{article.body}</Text>
+        </Section>
       );
     })
   }
