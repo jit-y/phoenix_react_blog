@@ -19,8 +19,8 @@ defmodule PhoenixReactBlog.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PhoenixReactBlog do
-  #   pipe_through :api
-  # end
+  scope "/api", PhoenixReactBlog do
+    pipe_through :api
+    resources "/articles", ArticleController, except: [:new, :edit]
+  end
 end
