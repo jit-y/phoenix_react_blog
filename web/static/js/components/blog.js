@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Contents from './contents';
 
 export default class Blog extends Component {
   constructor(props) {
@@ -10,12 +11,14 @@ export default class Blog extends Component {
   }
 
   render() {
+    console.log(this.state);
     return(
-      <h1>
-        {
-          this.props.blog.articles.length !== 0 ? this.props.blog.articles[0].title : 'loading'
-        }
-      </h1>
+      <div className="blog">
+        <Contents
+          articles={this.props.blog.articles}
+          article={this.props.actions.blog.addArticle}
+        />
+      </div>
     );
   }
 }

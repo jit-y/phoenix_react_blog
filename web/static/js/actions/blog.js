@@ -16,3 +16,22 @@ export const fetchArticles = () => {
     }
   }
 }
+
+export const addArticle = (payload) => {
+  return {
+    [CALL_API]: {
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      endpoint: '/api/articles',
+      method: 'POST',
+      body: JSON.stringify(payload),
+      types: [
+        'REQUEST_ADD_ARTICLE',
+        {
+          type: 'SUCCESS_ADD_ARTICLE',
+          payload: (action, store, res) => res.json().then(payload => payload),
+        },
+        'FAILURE_ADD_ARTICLE',
+      ],
+    }
+  }
+}
